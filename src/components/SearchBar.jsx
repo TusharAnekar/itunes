@@ -18,14 +18,23 @@ export const SearchBar = () => {
   }
 
   return (
-    <form onSubmit={handleSearch}>
+    <form
+      onSubmit={handleSearch}
+      className="flex justify-center gap-2 p-2 border-b"
+    >
       <input
         type="text"
         placeholder="Search for songs..."
         value={query}
         onChange={(event) => handleInput(event)}
+        className="border border-black rounded-lg p-1"
       />
-      <button type="submit">Search</button>
+      <button
+        type="submit"
+        className="px-2 py-1 bg-green-500 rounded-lg text-white font-semibold"
+      >
+        Search
+      </button>
     </form>
   );
 };

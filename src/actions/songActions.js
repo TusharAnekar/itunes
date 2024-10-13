@@ -10,7 +10,19 @@ export const fetchSongs = (query) => async (dispatch) => {
     const response = await axios.get(
       `https://itunes.apple.com/search?term=${query}&entity=song`
     );
-    dispatch({ type: FETCH_SONGS_SUCCESS, payload: response.data.results });
+    console.log(response);
+    const {
+      data: { results },
+      status,
+    } = response;
+    if (status === 200) {
+      dispatch({ type: FETCH_SONGS_SUCCESS, payload: results });
+    } else {
+      dispatch({
+        type: FETCH_SONGS_FAILURE,
+        error: "Error while fetching data",
+      });
+    }
   } catch (error) {
     dispatch({ type: FETCH_SONGS_FAILURE, error: error.message });
   }

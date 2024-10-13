@@ -4,7 +4,7 @@ import { SongList } from "./components/SongList";
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <SearchBar />
       <SongList />
     </div>
